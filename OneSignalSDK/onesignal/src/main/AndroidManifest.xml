@@ -61,50 +61,52 @@
 
     <application>
 
-        <receiver android:name="com.onesignal.NotificationOpenedReceiver" />
+        <receiver android:name="com.onesignal.NotificationOpenedReceiver" android:exported="true"/>
 
         <service
             android:name="com.onesignal.HmsMessageServiceOneSignal"
-            android:exported="false">
+            android:exported="true">
             <intent-filter>
                 <action android:name="com.huawei.push.action.MESSAGING_EVENT" />
             </intent-filter>
         </service>
         
         <activity android:name="com.onesignal.NotificationOpenedActivityHMS"
-                  android:theme="@android:style/Theme.Translucent.NoTitleBar">
+                  android:theme="@android:style/Theme.Translucent.NoTitleBar"
+                  android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
 
-        <service android:name="com.onesignal.GcmIntentService" />
+        <service android:name="com.onesignal.GcmIntentService" android:exported="true"/>
 
-        <service android:name="com.onesignal.GcmIntentJobService"
+        <service android:name="com.onesignal.GcmIntentJobService" android:exported="true"
             android:permission="android.permission.BIND_JOB_SERVICE"/>
 
-        <service android:name="com.onesignal.RestoreJobService"
+        <service android:name="com.onesignal.RestoreJobService" android:exported="true"
             android:permission="android.permission.BIND_JOB_SERVICE" />
 
-        <service android:name="com.onesignal.RestoreKickoffJobService"
+        <service android:name="com.onesignal.RestoreKickoffJobService" android:exported="true"
             android:permission="android.permission.BIND_JOB_SERVICE" />
 
-        <service android:name="com.onesignal.SyncService" android:stopWithTask="true" />
-        <service android:name="com.onesignal.SyncJobService"
+        <service android:name="com.onesignal.SyncService" android:stopWithTask="true"
+            android:exported="true"/>
+        <service android:name="com.onesignal.SyncJobService" android:exported="true"
             android:permission="android.permission.BIND_JOB_SERVICE" />
 
-        <activity android:name="com.onesignal.PermissionsActivity"
+        <activity android:name="com.onesignal.PermissionsActivity" android:exported="true"
                   android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
-        <service android:name="com.onesignal.NotificationRestoreService" />
+        <service android:name="com.onesignal.NotificationRestoreService" android:exported="true" />
 
-        <receiver android:name="com.onesignal.BootUpReceiver">
+        <receiver android:name="com.onesignal.BootUpReceiver" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <action android:name="android.intent.action.QUICKBOOT_POWERON" />
             </intent-filter>
         </receiver>
-        <receiver android:name="com.onesignal.UpgradeReceiver" >
+        <receiver android:name="com.onesignal.UpgradeReceiver" android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
             </intent-filter>
